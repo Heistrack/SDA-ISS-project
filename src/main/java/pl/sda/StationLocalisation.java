@@ -26,4 +26,5 @@ public class StationLocalisation {
     @Column(name = "Altitude")
     double altitude;
 
+
 }
