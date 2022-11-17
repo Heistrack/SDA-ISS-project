@@ -1,12 +1,11 @@
 package pl.sda;
-
+import org.json.*;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.utils.URIBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -98,4 +97,16 @@ public class Connection {
         return null;
     }
 
+    public String[] issLocalParse(){
+        Connection conn = new Connection();
+        org.json.JSONObject obj = new org.json.JSONObject(conn.getStaLoc());
+
+        String[] strings = new String[3];
+
+        strings[0] = obj.getJSONObject("iss_position").getString("latitude");
+        strings[1] = obj.getJSONObject("iss_position").getString("longitude");
+        strings[2] = String.valueOf(obj.getLong("timestamp"));
+
+        return strings;
+    }
 }
