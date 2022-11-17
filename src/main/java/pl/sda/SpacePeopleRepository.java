@@ -1,9 +1,7 @@
 package pl.sda;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class SpacePeopleRepository {
 
@@ -31,6 +29,24 @@ public class SpacePeopleRepository {
         }
 
     }
+
+
+    public List<SpacePeople> loadSpacePeople(){
+        try {
+            TypedQuery<SpacePeople> query = em.createQuery("""
+            SELECT spacepeople FROM spacepeople spacepeople
+            """, SpacePeople.class);
+
+            List<SpacePeople> spacePeople = query.getResultList();
+            return spacePeople;
+
+        } finally {
+            em.close();
+        }
+    }
+
+
+
 
 
 }
