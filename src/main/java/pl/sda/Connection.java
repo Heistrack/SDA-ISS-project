@@ -1,4 +1,5 @@
 package pl.sda;
+
 import org.json.*;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpRequestBase;
@@ -6,6 +7,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -97,16 +100,35 @@ public class Connection {
         return null;
     }
 
-    public String[] issLocalParse(){
+    public String[] issLocalParse(JSONObject obj) {
         Connection conn = new Connection();
-        org.json.JSONObject obj = new org.json.JSONObject(conn.getStaLoc());
+        org.json.JSONObject jsonObject = new org.json.JSONObject(obj);
 
         String[] strings = new String[3];
 
-        strings[0] = obj.getJSONObject("iss_position").getString("latitude");
-        strings[1] = obj.getJSONObject("iss_position").getString("longitude");
-        strings[2] = String.valueOf(obj.getLong("timestamp"));
+        strings[0] = jsonObject.getJSONObject("iss_position").getString("latitude");
+        strings[1] = jsonObject.getJSONObject("iss_position").getString("longitude");
+        strings[2] = String.valueOf(jsonObject.getLong("timestamp"));
 
         return strings;
+    }
+
+    public ArrayList<People> issPeopleParser(JSONObject jsonObject) {
+        ArrayList<People> peopleArr = new ArrayList<>();
+
+        Connection conn = new Connection();
+        org.json.JSONObject obj = new org.json.JSONObject(jsonObject);
+        org.json.JSONArray arr = obj.getJSONArray("people");
+
+        for (int i = 0; i < arr.length(); i++) {
+            if (arr.getJSONObject(i).getString("craft").equals("ISS")) {
+
+                People people1 = new People(arr.getJSONObject(i).getString("name"),
+                        arr.getJSONObject(i).getString("craft"));
+
+                peopleArr.add(people1);
+            }
+        }
+        return peopleArr;
     }
 }
