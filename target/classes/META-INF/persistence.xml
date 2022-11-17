@@ -1,0 +1,13 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="iss_station">
+        <class>.java.pl.sda.iss_station.SpacePeople</class>
+        <class>pl.java.pl.sda.iss_station.StationLocalisation</class>
+        <class>pl.java.pl.sda.common.iss_station.StationVelocity</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.highlight_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
