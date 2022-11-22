@@ -113,8 +113,8 @@ public class Connection {
         return strings;
     }
 
-    public ArrayList<People> issPeopleParser(JSONObject jsonObject) {
-        ArrayList<People> peopleArr = new ArrayList<>();
+    public ArrayList<SpacePeople> issPeopleParser(JSONObject jsonObject) {
+        ArrayList<SpacePeople> peopleArr = new ArrayList<>();
 
         Connection conn = new Connection();
         org.json.JSONObject obj = new org.json.JSONObject(jsonObject);
@@ -123,8 +123,9 @@ public class Connection {
         for (int i = 0; i < arr.length(); i++) {
             if (arr.getJSONObject(i).getString("craft").equals("ISS")) {
 
-                People people1 = new People(arr.getJSONObject(i).getString("name"),
-                        arr.getJSONObject(i).getString("craft"));
+                SpacePeople people1 = new SpacePeople();
+                people1.setName(arr.getJSONObject(i).getString("name"));
+                people1.setCraft(arr.getJSONObject(i).getString("craft"));
 
                 peopleArr.add(people1);
             }
