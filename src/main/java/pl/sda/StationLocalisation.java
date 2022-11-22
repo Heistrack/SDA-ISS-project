@@ -1,14 +1,13 @@
 package pl.sda;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class StationLocalisation {
 
     @Id
     @Column(name = "Station_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int stationID;
 
     @Column(name = "timestamp")
