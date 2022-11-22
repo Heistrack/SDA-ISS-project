@@ -13,17 +13,34 @@ public class StationLocalisation {
     @Column(name = "timestamp")
     long timeStamp;
 
-    @Column(name = "Passes")
-    int passes;
-
     @Column(name = "Latitude")
     double latitude;
 
     @Column(name = "Longitude")
     double longitude;
 
-    @Column(name = "Altitude")
-    double altitude;
 
+    public long getTimeStamp() {
+        return timeStamp;
+    }
 
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 }
