@@ -5,25 +5,20 @@ import java.util.List;
 
 public class SpacePeopleRepository {
 
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("iss_station");
-    private static EntityManager em = factory.createEntityManager();
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory("iss_station");
+    EntityManager em = factory.createEntityManager();
 
-    public void addSpacePeopleToDB(String name, String craft){
-
-        SpacePeople spacePeople = new SpacePeople();
-        spacePeople.setName(name);
-        spacePeople.setCraft(craft);
+    public void addSpacePeopleToDB(List<SpacePeople> people){
 
         EntityTransaction transaction = em.getTransaction();
 
         try {
             transaction.begin();
-            em.persist(spacePeople);
+            em.persist(people);
             transaction.commit();
         }
-        catch (Exception e){
-            transaction.rollback();
-        }
+
+
         finally {
             em.close();
         }
