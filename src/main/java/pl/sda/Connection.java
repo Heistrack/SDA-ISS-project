@@ -100,17 +100,17 @@ public class Connection {
         return null;
     }
 
-    public String[] issLocalParse(JSONObject obj) {
+    public StationLocalisation issLocalParse(JSONObject obj) {
         Connection conn = new Connection();
         org.json.JSONObject jsonObject = new org.json.JSONObject(obj);
 
-        String[] strings = new String[3];
+        StationLocalisation sT = new StationLocalisation();
 
-        strings[0] = jsonObject.getJSONObject("iss_position").getString("latitude");
-        strings[1] = jsonObject.getJSONObject("iss_position").getString("longitude");
-        strings[2] = String.valueOf(jsonObject.getLong("timestamp"));
+        sT.setLatitude(jsonObject.getJSONObject("iss_position").getDouble("latitude"));
+        sT.setLongitude(jsonObject.getJSONObject("iss_position").getDouble("longitude"));
+        sT.setTimeStamp(jsonObject.getLong("timestamp"));
 
-        return strings;
+        return sT;
     }
 
     public ArrayList<SpacePeople> issPeopleParser(JSONObject jsonObject) {
