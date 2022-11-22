@@ -1,10 +1,15 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="iss_station">
-        <class>java.pl.sda.iss_station.SpacePeople</class>
-        <class>java.pl.sda.iss_station.StationLocalisation</class>
-        <class>java.pl.sda.iss_station.StationVelocity</class>
+        <class>pl.sda.SpacePeople</class>
+        <class>pl.sda.StationLocalisation</class>
+        <class>pl.sda.StationVelocity</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/iss_station?serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="1234" />
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.highlight_sql" value="true"/>
