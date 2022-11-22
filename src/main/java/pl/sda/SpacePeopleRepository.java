@@ -17,7 +17,6 @@ public class SpacePeopleRepository {
 
         EntityManager em = factory.createEntityManager();
 
-
         List<SpacePeople> entities = spacePeople;
 
         EntityTransaction transaction = em.getTransaction();
