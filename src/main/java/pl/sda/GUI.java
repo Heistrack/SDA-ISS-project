@@ -8,6 +8,8 @@ public class GUI {
     void showGUI(){
         Calculations calculations = new Calculations();
         Scanner myScanner = new Scanner(System.in);
+        SpacePeopleRepository spacePeopleRepository = new SpacePeopleRepository();
+        Connection connection = new Connection();
 
 
         while (true){
@@ -20,7 +22,9 @@ public class GUI {
 
             if (choice == 1){
                 //metoda
-                System.out.println("wybor 1");
+                spacePeopleRepository.addSpacePeopleToDB(connection.issPeopleParser());
+                spacePeopleRepository.loadSpacePeople().stream().forEach(System.out::println);
+
             }
             else if (choice == 2){
                 //metoda
