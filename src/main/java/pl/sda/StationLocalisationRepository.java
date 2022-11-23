@@ -35,8 +35,14 @@ public class StationLocalisationRepository {
              FROM StationLocalisation
             """, StationLocalisation.class);
 
-                StationLocalisation stationLocalisation = query.getSingleResult();
+
+
+
+                List<StationLocalisation> stationLocalisationList = query.getResultList();
+                int length = stationLocalisationList.toArray().length;
                 transaction.commit();
+
+                StationLocalisation stationLocalisation = stationLocalisationList.get(length - 1);
                 return stationLocalisation;
 
             } finally {
