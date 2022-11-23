@@ -35,6 +35,7 @@ public class GUI {
                     System.out.println("statek: " + person.getCraft());
                     System.out.println("_______________");
                 }
+
 //                spacePeopleRepository.loadSpacePeople().stream().forEach(System.out::println);
 
             }
