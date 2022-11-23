@@ -11,5 +11,14 @@ public class StationVelocity {
     private int measurementID;
 
     @Column(name = "velocity")
-    private int velocity;
+    private double velocity;
+
+
+    public double getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(double velocity) {
+        this.velocity = velocity;
+    }
 }
