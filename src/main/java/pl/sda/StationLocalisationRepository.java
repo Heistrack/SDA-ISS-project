@@ -37,6 +37,7 @@ public class StationLocalisationRepository {
 
 
 
+
                 List<StationLocalisation> stationLocalisationList = query.getResultList();
                 int length = stationLocalisationList.toArray().length;
                 transaction.commit();
