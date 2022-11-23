@@ -1,5 +1,6 @@
 package pl.sda;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GUI {
@@ -23,8 +24,19 @@ public class GUI {
 
             if (choice == 1){
                 //metoda
+
                 spacePeopleRepository.addSpacePeopleToDB(connection.issPeopleParser());
-                spacePeopleRepository.loadSpacePeople().stream().forEach(System.out::println);
+                List<SpacePeople> spacePeople = spacePeopleRepository.loadSpacePeople();
+
+                System.out.println("osoby aktualnie przebywające w kosmosie: ");
+
+                for (SpacePeople person : spacePeople){
+                    System.out.println("imię i nazwisko: " + person.getName());
+                    System.out.println("statek: " + person.getCraft());
+                    System.out.println("_______________");
+                }
+
+//                spacePeopleRepository.loadSpacePeople().stream().forEach(System.out::println);
 
             }
             else if (choice == 2){
