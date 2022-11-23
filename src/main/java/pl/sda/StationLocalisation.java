@@ -24,6 +24,7 @@ public class StationLocalisation {
         return timeStamp;
     }
 
+
     public void setTimeStamp(long timeStamp) {
         this.timeStamp = timeStamp;
     }
@@ -42,5 +43,16 @@ public class StationLocalisation {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+
+    @Override
+    public String toString() {
+        return "StationLocalisation{" +
+                "stationID=" + stationID +
+                ", timeStamp=" + timeStamp +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 }
