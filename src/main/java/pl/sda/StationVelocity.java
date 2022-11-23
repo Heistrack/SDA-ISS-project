@@ -1,14 +1,13 @@
 package pl.sda;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class StationVelocity {
 
     @Id
     @Column(name = "measurent_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int measurementID;
 
     @Column(name = "velocity")
