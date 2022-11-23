@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class GUI {
 
 
-    void showGUI(){
-        Calculations calculations = new Calculations();
+    void showGUI() throws InterruptedException {
+        Connection conn = new Connection();
         Scanner myScanner = new Scanner(System.in);
 
 
@@ -24,7 +24,12 @@ public class GUI {
             }
             else if (choice == 2){
                 //metoda
-                System.out.println("wybor 2");
+                StationVelocity sV = new StationVelocity();
+                CalClass calClass = new CalClass();
+                sV.setVelocity(calClass.getVelocity());
+                StationVelocityRepository sVR = new StationVelocityRepository();
+                sVR.sendStationVelocityToDB(sV);
+                System.out.println("Prędkość wynosi: " + sVR.loadStationVelocity().getVelocity());
             }
             else if (choice == 3){
                 //metoda
