@@ -100,9 +100,9 @@ public class Connection {
         return null;
     }
 
-    public StationLocalisation issLocalParse(JSONObject obj) {
+    public StationLocalisation issLocalParse() {
         Connection conn = new Connection();
-        org.json.JSONObject jsonObject = new org.json.JSONObject(obj);
+        org.json.JSONObject jsonObject = new org.json.JSONObject(conn.getStaLoc());
 
         StationLocalisation sT = new StationLocalisation();
 
@@ -113,11 +113,11 @@ public class Connection {
         return sT;
     }
 
-    public ArrayList<SpacePeople> issPeopleParser(JSONObject jsonObject) {
+    public ArrayList<SpacePeople> issPeopleParser() {
         ArrayList<SpacePeople> peopleArr = new ArrayList<>();
 
         Connection conn = new Connection();
-        org.json.JSONObject obj = new org.json.JSONObject(jsonObject);
+        org.json.JSONObject obj = new org.json.JSONObject(conn.getPeople());
         org.json.JSONArray arr = obj.getJSONArray("people");
 
         for (int i = 0; i < arr.length(); i++) {

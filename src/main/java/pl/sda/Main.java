@@ -10,7 +10,7 @@ public class Main {
         Connection connection = new Connection();
 //        connection.getStaLoc();
 //        connection.getPeople();
-        System.out.println(connection.issPeopleParser(connection.getPeople()));
+        System.out.println(connection.issPeopleParser());
 
 
 //        GUI gui = new GUI();
