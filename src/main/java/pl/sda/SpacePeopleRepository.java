@@ -9,9 +9,6 @@ public class SpacePeopleRepository {
     EntityManagerFactory factory = Persistence.createEntityManagerFactory("iss_station");
 
 
-
-
-
     public void addSpacePeopleToDB(List<SpacePeople> spacePeople){
 
 
@@ -48,9 +45,4 @@ public class SpacePeopleRepository {
             em.close();
         }
     }
-
-
-
-
-
 }
