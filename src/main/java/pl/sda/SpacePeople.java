@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class SpacePeople {
 
     @Id
-    @Column(name = "Station_id")
+    @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int personID;
 
@@ -30,5 +30,14 @@ public class SpacePeople {
 
     public void setCraft(String craft) {
         this.craft = craft;
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePeople{" +
+                "personID=" + personID +
+                ", name='" + name + '\'' +
+                ", craft='" + craft + '\'' +
+                '}';
     }
 }

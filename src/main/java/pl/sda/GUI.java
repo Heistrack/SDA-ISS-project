@@ -34,7 +34,8 @@ public class GUI {
                 sV.setVelocity(calClass.getVelocity());
                 StationVelocityRepository sVR = new StationVelocityRepository();
                 sVR.sendStationVelocityToDB(sV);
-                System.out.println("Prędkość wynosi: " + sVR.loadStationVelocity().getVelocity());
+                System.out.println("Prędkość wynosi: " + String.format("%.2f",sVR.loadStationVelocity().getVelocity()) +
+                        " km/h");
             }
             else if (choice == 3){
                 //metoda
