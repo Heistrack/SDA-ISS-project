@@ -21,4 +21,13 @@ public class StationVelocity {
     public void setVelocity(double velocity) {
         this.velocity = velocity;
     }
+
+
+    @Override
+    public String toString() {
+        return "StationVelocity{" +
+                "measurementID=" + measurementID +
+                ", velocity=" + velocity +
+                '}';
+    }
 }
