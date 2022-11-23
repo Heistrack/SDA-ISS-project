@@ -41,7 +41,6 @@ public class StationVelocityRepository {
              FROM StationVelocity
             """, StationVelocity.class);
 
-
             StationVelocity stationVelocity = query.getSingleResult();
 
             transaction.commit();
