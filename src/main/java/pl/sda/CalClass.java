@@ -23,12 +23,13 @@ public class CalClass {
         StationLocalisation sL2 = sLR.loadStationLocalisation();
 
         //Road in km
-        Double road = Math.sqrt(Math.pow((sL2.latitude - sL1.latitude), 2) + Math.pow((sL2.longitude - sL1.longitude), 2));
+        Double road = Math.sqrt(
+                Math.pow((sL2.latitude - sL1.latitude), 2) + Math.pow((sL2.longitude - sL1.longitude), 2));
         road *= 111.196;
         //Time in hours
         double time = sL2.getTimeStamp() - sL1.getTimeStamp();
         time /= 3600;
         // Velocity
-        return road/time;
+        return road / time;
     }
 }

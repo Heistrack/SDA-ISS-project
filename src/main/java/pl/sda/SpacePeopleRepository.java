@@ -1,7 +1,6 @@
 package pl.sda;
 
 import javax.persistence.*;
-import java.util.Iterator;
 import java.util.List;
 
 public class SpacePeopleRepository {

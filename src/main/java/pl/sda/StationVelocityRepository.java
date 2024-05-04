@@ -1,14 +1,13 @@
 package pl.sda;
 
 import javax.persistence.*;
-import java.util.List;
 
 public class StationVelocityRepository {
 
 
     EntityManagerFactory factory = Persistence.createEntityManagerFactory("iss_station");
 
-    public void sendStationVelocityToDB(StationVelocity stationVelocity){
+    public void sendStationVelocityToDB(StationVelocity stationVelocity) {
 
         EntityManager em = factory.createEntityManager();
 
@@ -25,12 +24,10 @@ public class StationVelocityRepository {
         em.close();
 
 
-
     }
 
 
-
-    public StationVelocity loadStationVelocity(){
+    public StationVelocity loadStationVelocity() {
 
 
         EntityManager em = factory.createEntityManager();
@@ -38,8 +35,8 @@ public class StationVelocityRepository {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
             TypedQuery<StationVelocity> query = em.createQuery("""
-             FROM StationVelocity
-            """, StationVelocity.class);
+                                                                        FROM StationVelocity
+                                                                       """, StationVelocity.class);
 
             StationVelocity stationVelocity = query.getSingleResult();
 

@@ -8,8 +8,7 @@ public class StationLocalisationRepository {
     EntityManagerFactory factory = Persistence.createEntityManagerFactory("iss_station");
 
 
-
-    public  void addStationLocalisationToDB(StationLocalisation stationLocalisation){
+    public void addStationLocalisationToDB(StationLocalisation stationLocalisation) {
 
         EntityManager em = factory.createEntityManager();
 
@@ -25,30 +24,28 @@ public class StationLocalisationRepository {
     }
 
 
-    public StationLocalisation loadStationLocalisation(){
+    public StationLocalisation loadStationLocalisation() {
 
-            EntityManager em = factory.createEntityManager();
-            try {
-                EntityTransaction transaction = em.getTransaction();
-                transaction.begin();
-                TypedQuery<StationLocalisation> query = em.createQuery("""
-             FROM StationLocalisation
-            """, StationLocalisation.class);
-
-
+        EntityManager em = factory.createEntityManager();
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            TypedQuery<StationLocalisation> query = em.createQuery("""
+                                                                            FROM StationLocalisation
+                                                                           """, StationLocalisation.class);
 
 
-                List<StationLocalisation> stationLocalisationList = query.getResultList();
-                int length = stationLocalisationList.toArray().length;
-                transaction.commit();
+            List<StationLocalisation> stationLocalisationList = query.getResultList();
+            int length = stationLocalisationList.toArray().length;
+            transaction.commit();
 
-                StationLocalisation stationLocalisation = stationLocalisationList.get(length - 1);
-                return stationLocalisation;
+            StationLocalisation stationLocalisation = stationLocalisationList.get(length - 1);
+            return stationLocalisation;
 
-            } finally {
-                em.close();
-            }
+        } finally {
+            em.close();
         }
     }
+}
 
 
