@@ -14,7 +14,7 @@ public class GUI {
         StationLocalisationRepository stationLocalisationRepository = new StationLocalisationRepository();
 
 
-        while (true){
+        while (true) {
             System.out.println("1. Pokaż osoby aktualnie przebywające na ISS");
             System.out.println("2. Pokaż aktualną prędkośc ISS");
             System.out.println("3. Pokaż aktualną lokalizację ISS");
@@ -22,7 +22,7 @@ public class GUI {
 
             int choice = myScanner.nextInt();
 
-            if (choice == 1){
+            if (choice == 1) {
                 //metoda
 
                 spacePeopleRepository.addSpacePeopleToDB(connection.issPeopleParser());
@@ -30,7 +30,7 @@ public class GUI {
 
                 System.out.println("osoby aktualnie przebywające w kosmosie: ");
 
-                for (SpacePeople person : spacePeople){
+                for (SpacePeople person : spacePeople) {
                     System.out.println("imię i nazwisko: " + person.getName());
                     System.out.println("statek: " + person.getCraft());
                     System.out.println("_______________");
@@ -38,18 +38,17 @@ public class GUI {
 
 //                spacePeopleRepository.loadSpacePeople().stream().forEach(System.out::println);
 
-            }
-            else if (choice == 2){
+            } else if (choice == 2) {
                 //metoda
                 StationVelocity sV = new StationVelocity();
                 CalClass calClass = new CalClass();
                 sV.setVelocity(calClass.getVelocity());
                 StationVelocityRepository sVR = new StationVelocityRepository();
                 sVR.sendStationVelocityToDB(sV);
-                System.out.println("Prędkość wynosi: " + String.format("%.2f",sVR.loadStationVelocity().getVelocity()) +
-                        " km/h");
-            }
-            else if (choice == 3){
+                System.out.println(
+                        "Prędkość wynosi: " + String.format("%.2f", sVR.loadStationVelocity().getVelocity()) +
+                                " km/h");
+            } else if (choice == 3) {
                 //metoda
                 stationLocalisationRepository.addStationLocalisationToDB(connection.issLocalParse());
                 double lattitude = stationLocalisationRepository.loadStationLocalisation().latitude;
@@ -57,8 +56,7 @@ public class GUI {
                 System.out.println("Szerokość geograficzna: " + lattitude);
                 System.out.println("Długość geograficzna: " + longitude);
 
-            }
-            else if (choice == 4){
+            } else if (choice == 4) {
                 break;
             }
         }

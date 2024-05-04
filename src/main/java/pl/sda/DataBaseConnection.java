@@ -8,7 +8,7 @@ import java.util.Properties;
 public class DataBaseConnection {
 
 
-    public SpacePeople addSpacePeopleToDB(Properties properties){
+    public SpacePeople addSpacePeopleToDB(Properties properties) {
 
         final SpacePeople spacePeople = new SpacePeople();
 
@@ -21,22 +21,17 @@ public class DataBaseConnection {
             entityManager.persist(spacePeople);
 
             entityManager.getTransaction().commit();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             entityManager.getTransaction().rollback();
             throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             entityManagerFactory.close();
         }
 
         return spacePeople;
 
 
-
-
     }
-
 
 
 }
